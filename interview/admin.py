@@ -69,6 +69,11 @@ class CandidateAdmin(admin.ModelAdmin):
                               "hr_interviewer_user",
                               "last_editor",
                               )}))
+    # 右侧筛选条件
+    list_filter = ('city','first_result','second_result','hr_result','first_interviewer_user','second_interviewer_user','hr_interviewer_user')
+
+    # 查询字段
+    search_fields = ('username', 'phone', 'email', 'bachelor_school')
 
 
 admin.site.register(Candidate, CandidateAdmin)
