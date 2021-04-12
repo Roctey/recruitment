@@ -6,6 +6,9 @@ from django.db import models
 # Create your models here.
 
 
+# 候选人学历
+DEGREE_TYPE = ((u'本科', u'本科'), (u'硕士', u'硕士'), (u'博士', u'博士'))
+
 JobTypes = [
     (0, "技术类"),
     (1, "产品类"),
@@ -29,3 +32,6 @@ class Job(models.Model):
     creator = models.ForeignKey(User, verbose_name="创建人", null=True, on_delete=models.SET_NULL)
     created_date = models.DateTimeField(verbose_name="创建日期", default=datetime.now)
     modified_date = models.DateTimeField(verbose_name="修改时间", default=datetime.now)
+
+    class Meta:
+        db_table = 'tb_job'
